@@ -97,7 +97,7 @@ func selectLastTransaction(conn *sql.DB) string {
 	SELECT created_at FROM transactions ORDER BY created_at DESC LIMIT 1;
 	`).Scan(&createdAt)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Query failed: %v\n", err)
+		fmt.Print("No transactions history\n")
 	}
 
 	return createdAt
