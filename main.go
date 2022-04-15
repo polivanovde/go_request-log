@@ -92,16 +92,16 @@ func payHandler(w http.ResponseWriter, r *http.Request) {
 		if err := json.Unmarshal([]byte(string(body)), &model); err != nil {
 			log.Println(err)
 		}
+	    insert(conn, model)
 	}
-	insert(conn, model)
 }
 func transferHandler(w http.ResponseWriter, r *http.Request) {
 	if len(body) != 0 {
 		if err := json.Unmarshal([]byte(string(body)), &model); err != nil {
 			log.Println(err)
 		}
+	    transfer(conn, model)
 	}
-	transfer(conn, model)
 }
 
 func checkLog(conn *sql.DB) {
